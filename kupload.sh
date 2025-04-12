@@ -32,7 +32,7 @@ echo -e "\n $A Starting...\n"
 for ((i=start; i<=files; i++));do
 	FILE=$(ls -1 | awk "NR==$i")
 
-	echo -e "$W [${R}+${W}]$W $FILE"
+	echo -e "$W [${R}FILE${W}]$W $FILE"
 
 	status_code=$(curl -s -o /dev/null -w "%{http_code}" -k -X POST "$1" -F "archivo=@$FILE")
 	
