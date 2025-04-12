@@ -1,10 +1,6 @@
 # kupload
 This script is used to automatically and progressively upload files to a server configured by us.
 
----
-
-<img src="https://github.com/JsonSecurity/Images/blob/main/scripts/kupload_1.png" />
-
 ### Install
 
 ```
