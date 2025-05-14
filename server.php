@@ -15,8 +15,20 @@ if (isset($_FILES['archivo'])) {
             $nombre_final = $nombre_original . '.' . $extension;
         }
 
-        if (move_uploaded_file($archivo['tmp_name'], 'uploads/' . $nombre_final)) {
+        // Crear la carpeta 'uploads' si no existe
+        $directorio = 'uploads';
+        if (!is_dir($directorio)) {
+            if (!mkdir($directorio, 0755, true)) {
+                error_log("[!] No se pudo crear el directorio 'uploads'.");
+                exit;
+            }
+        }
+
+        $ruta_destino = $directorio . '/' . $nombre_final;
+
+        if (move_uploaded_file($archivo['tmp_name'], $ruta_destino)) {
             // Archivo subido correctamente
+            header("Location: index.php");
         } else {
             error_log("[!] Error al mover el archivo.");
         }
