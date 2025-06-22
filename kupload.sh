@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ ! $1 ]];then
-	echo -e "\n$0 <server> <line>"
+	echo -e "\n$0 http://<host>/server.php <line>"
 	exit 1
 fi
 
